@@ -1,6 +1,6 @@
 import re
 
-regex = r"^[\w.]+@[\w^d]+\.[a-z]+"
+regex = r"^[\w.]+@[A-Za-z]+\.[A-Za-z]+"
 
 test_str = ("john.doe@example.com\n"
 	"alice_smith123@gmail.com\n"
@@ -23,3 +23,14 @@ for matchNum, match in enumerate(matches, start=1):
         groupNum = groupNum + 1
         
         print ("Group {groupNum} found at {start}-{end}: {group}".format(groupNum = groupNum, start = match.start(groupNum), end = match.end(groupNum), group = match.group(groupNum)))
+
+
+if __name__=="__main__":
+    while(True):
+        email=input("Enter email to check validity: ")
+        if re.match(regex, email):
+            print(f"{email} is a valid email address.")
+        else:
+            print(f"{email} is not a valid email address.")
+        if email==('q' or 'Q'):
+            break
