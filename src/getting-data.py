@@ -1,7 +1,7 @@
 import re
 
 regex=r":\s([A-Za-z_-]+[\w]+)\s*[\w]+:\s*(\d{8})\s*[\w]+:\s*\$([\w.]*)"
-
+pattern=r"Product: ([A-Z|a-z|\S]) |Code: ([\d]) Price: ($[\d.]*)"
 text="""
 Product: Laptop_2021 Code: 12345678 Price: $899.99
 Product: Mouse-2022   Code: 98765432 Price: $15
@@ -14,7 +14,7 @@ Product: Printer_2023 Code: 77889900 Price: $129.50
 Product: Tablet-A1    Code: 33221100 Price: $199
 Product: Speaker-3    Code: 66554433 Price: $79.99
 """
-data=re.findall(regex,text)
+data=re.findall(pattern,text)
 
 
 for x in data:
